@@ -103,6 +103,8 @@ app.use((err, req, res, next) => {
 mongoose.connect('mongodb://localhost:27017/newsexplorer', {
   useNewUrlParser: true,
 });
-if (NODE_ENV !== 'test') app.listen(PORT, () => {
-  console.log('running on PORT: ', PORT);
-});
+if (NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
+    console.log('running on PORT: ', PORT);
+  });
+}
