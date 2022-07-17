@@ -6,7 +6,9 @@ const ForbiddenErr = require('../errors/forbidden-err');
 
 const Article = require('../models/article');
 
-const { OK, CREATED, NOT_FOUND, BAD_REQUEST, FORBIDDEN} = require('../utils/status-codes');
+const {
+  OK, CREATED, NOT_FOUND, BAD_REQUEST, FORBIDDEN,
+} = require('../utils/status-codes');
 
 const getArticles = (req, res, next) => {
   Article.find({})
@@ -39,9 +41,7 @@ const deleteArticle = (req, res, next) => {
     .then((article) => {
       if (article.owner.equals(req.user._id)) res.send(article);
       else {
-        throw new ForbiddenErr(
-          'You cannot delete an article that does not belong to you', FORBIDDEN
-        );
+        throw new ForbiddenErr('You cannot delete an article that does not belong to you', FORBIDDEN);
       }
     })
     .catch((err) => {

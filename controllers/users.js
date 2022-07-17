@@ -11,7 +11,9 @@ const LoginErr = require('../errors/login-err');
 const EmailConflictErr = require('../errors/email-conflict-err');
 
 const { JWT_DEV_SECRET } = require('../utils/constants');
-const { OK, CREATED, NOT_FOUND, BAD_REQUEST, CONFLICT, UNAUTHORIZED} = require('../utils/status-codes');
+const {
+  OK, CREATED, NOT_FOUND, BAD_REQUEST, CONFLICT, UNAUTHORIZED,
+} = require('../utils/status-codes');
 
 const getCurrentUser = (req, res, next) => {
   User.findById(req.user._id)

@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const {
-errors
+  errors,
 } = require('celebrate');
 
 const cors = require('cors');
@@ -16,7 +16,7 @@ const mainRouter = require('./routes');
 
 const NotFoundErr = require('./errors/not-found-err');
 
-const centralizedErr = require('./middleware/centralized-err')
+const centralizedErr = require('./middleware/centralized-err');
 
 const { limiter } = require('./utils/rate-limiter');
 
@@ -26,7 +26,7 @@ const { requestLogger, errorLogger } = require('./middleware/logger');
 
 const { MONGODB_URL } = require('./utils/constants');
 
-const {NOT_FOUND} = require('./utils/status-codes');
+const { NOT_FOUND } = require('./utils/status-codes');
 
 const app = express();
 
@@ -58,7 +58,7 @@ app.use(errors());
 
 app.use(centralizedErr);
 
-mongoose.connect(MONGODB_URL, {
+mongoose.connect(MONGODB, {
   useNewUrlParser: true,
 });
 

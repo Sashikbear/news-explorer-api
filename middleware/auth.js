@@ -4,7 +4,7 @@ require('dotenv').config();
 const { NODE_ENV, JWT_SECRET } = process.env;
 const LoginErr = require('../errors/login-err');
 
-const {UNAUTHORIZED} = require('../utils/status-codes');
+const { UNAUTHORIZED } = require('../utils/status-codes');
 
 const { JWT_DEV_SECRET } = require('../utils/constants');
 

@@ -30,7 +30,8 @@ router.post(
       link: Joi.string().custom(validateUrl).required(),
       image: Joi.string().custom(validateUrl).required(),
     }),
-  }), auth,
+  }),
+  auth,
   createArticle,
 );
 

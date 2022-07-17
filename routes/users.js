@@ -7,7 +7,7 @@ const { celebrate, Joi } = require('celebrate');
 const auth = require('../middleware/auth');
 
 const {
-  getCurrentUser, createUser, login
+  getCurrentUser, createUser, login,
 } = require('../controllers/users');
 
 function validateEmail(string) {
@@ -41,6 +41,5 @@ router.post(
   }),
   login,
 );
-
 
 module.exports = router;
