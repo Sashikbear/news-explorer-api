@@ -30,14 +30,14 @@ router.post(
       link: Joi.string().custom(validateUrl).required(),
       image: Joi.string().custom(validateUrl).required(),
     }),
-  }),
+  }), auth,
   createArticle,
 );
 
 router.delete('/articles/:articleId', celebrate({
   params: Joi.object().keys({
-    cardId: Joi.string().hex().min(24).max(24),
+    articleId: Joi.string().hex().min(24).max(24),
   }).unknown(true),
-}), deleteArticle);
+}), auth, deleteArticle);
 
 module.exports = router;
